@@ -12,7 +12,11 @@ export function App() {
       const list = await tmdb.getHomeList()
       setMovieList(list)
 
-      
+      const originals = list.filter(item => item.slug === 'originals')
+      const ramdomMovie = Math.floor(Math.random() * (originals[0].items.results.length - 1))
+      const movie = originals[0].items.results[ramdomMovie]
+      const movieInfo = await tmdb.getMovieInfo(movie.id, 'tv')
+      setFeaturData(movieInfo)
     }
 
     loadAll()
