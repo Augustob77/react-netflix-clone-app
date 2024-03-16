@@ -1,0 +1,21 @@
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #564d4d;
+    --red-100: #db0000;
+    --red-200: #831010;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+button {
+    cursor: pointer;
+}
