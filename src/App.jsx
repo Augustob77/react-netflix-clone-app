@@ -63,10 +63,17 @@ export function App() {
     </section>
 
     <footer>
-      Feito com ReactJS <span> 😀 </span> <br/>
+      Feito com ReactJS <br/>
       Direitos de imagem para Neflix. <br/>
-      Dados pego da API Themoviedb.org
+      Dados pego da API Themoviedb.org <br/>
+      Dev Front-End - Augusto Barbosa de Carlos. <span> 😀 </span>
     </footer>
+
+    {movieList.length <= 0 &&
+      <div className={styles.loading}>
+        <img src="https://media.filmelier.com/noticias/br/2020/03/Netflix_LoadTime.gif" alt="Carregabdo" />
+      </div>
+    }
    </div>
   )
 }

@@ -1,7 +1,8 @@
 import styles from './feature.module.css'
 
 export function FeatureMovie({item}) {
-    const firstDate = new Date(item.first_air_date)
+    let firstDate = new Date(item.first_air_date)
+    let description = item.overview
     const limitCaracters = 190
     const genres = []
     for(let i in item.genres) {
@@ -33,7 +34,7 @@ export function FeatureMovie({item}) {
                         </div>
                     </div>
                     <div className={styles.featuredDescription}>
-                        {item.overview.length <= limitCaracters ? item.overview : item.overview.substring(0, limitCaracters) + "..." }
+                        {description.length <= limitCaracters ? description : description.substring(0, limitCaracters) + '...' }
                     </div>
                     <div className={styles.featuredButtons}>
                         <button className={styles.watchButton}> 
