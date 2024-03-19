@@ -2,10 +2,13 @@ import { useEffect, useState } from "react"
 import tmdb from "./tmdb"
 import { MovieList } from './components/MovieList'
 import { FeatureMovie } from './components/FeatureMovie'
+import { Header } from "./components/Header"
+import styles from './app.module.css'
 
 export function App() {
   const [movieList, setMovieList] = useState([])
   const [featureData, setFeaturData] = useState(null)
+  const [blackHeader, setBlackHeader] = useState(false)
   
   useEffect(() => {
     async function loadAll() {
@@ -21,16 +24,35 @@ export function App() {
 
     loadAll()
   }, [])
+
+  useEffect(() => {
+    function scrollListener() {
+      if (window.scrollY > 300) {
+        setBlackHeader(true)
+      } else {
+        setBlackHeader(false)
+      }
+    }
+
+    window.addEventListener('scroll', scrollListener)
+    return () => {
+      window.removeEventListener('scroll', scrollListener)
+    }
+  }, [])
   
   return (
-   <div className="page">
+   <div className={styles.page}>
+    <Header
+      black={blackHeader}
+    />
+
     {featureData && 
       <FeatureMovie
         item={featureData}
       />
     }
 
-    <section className="lists">
+    <section className={styles.lists}>
       {movieList.map((item, key) => (
         <MovieList
           key={key} 
@@ -39,6 +61,12 @@ export function App() {
         />
       ))}
     </section>
+
+    <footer>
+      Feito com ReactJS <span> 😀 </span> <br/>
+      Direitos de imagem para Neflix. <br/>
+      Dados pego da API Themoviedb.org
+    </footer>
    </div>
   )
 }
