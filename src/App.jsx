@@ -64,8 +64,8 @@ export function App() {
 
     <footer>
       Feito com ReactJS <br/>
-      Direitos de imagem para Neflix. <br/>
-      Dados pego da API Themoviedb.org <br/>
+      Direitos de imagem para Neflix <br/>
+      Dados pegos da API Themoviedb.org <br/>
       Dev Front-End - Augusto Barbosa de Carlos. <span> 😀 </span>
     </footer>
 
